@@ -12,7 +12,7 @@ int status(char grid[9]);
 void printBoard(char grid[9]);
 
 int main(){
-  char grid[9] = {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+  char grid[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
   int player = 1;
   int ifRun;
   char choice[2];
@@ -67,7 +67,7 @@ int main(){
     printBoard(grid);
     
     if(ifRun == 1){
-      cout << "Player " << player << " wins!";
+      cout << "Player " << player << " wins!" << endl;
       if(player%2 == 1){
 	winX++;
 	cout << "Player " << player << " wins: " << winX << endl;
@@ -78,7 +78,7 @@ int main(){
 	cout << "Player " << --player << " wins: " << winO << endl;
       }
     }else{
-      cout << "It's a tie!";
+      cout << "It's a tie!" << endl;
       if(player%2 == 1){
 	cout << "Player " << player << " wins: " << winX << endl;
 	cout << "Player " << ++player << " wins: " << winO << endl;
@@ -87,8 +87,6 @@ int main(){
 	cout << "Player " << --player << " wins: " << winO << endl;
       }
     }
-    cin.ignore();
-    cin.get();
 
     cout << "Keep playing? (y/n)" << endl;
     cin >> stillChoice;
@@ -119,7 +117,7 @@ int status(char grid[9]){
     return 1;
   }else if (grid[2] == grid[4] && grid[4] == grid[6]){ //top right to bottom left
     return 1;
-  }else if(grid[0] != ' ' && grid[1] != ' ' && grid[2] != ' ' && grid[3] != ' ' && grid[4] != ' ' && grid[5] != ' ' && grid[6] != ' ' && grid[7] != ' ' && grid[8] != ' '){ //tie
+  }else if(grid[0] != '1' && grid[1] != '2' && grid[2] != '3' && grid[3] != '4' && grid[4] != '5' && grid[5] != '6' && grid[6] != '7' && grid[7] != '8' && grid[8] != '9'){ //tie
     return 0;
   }else{
     return -1;
@@ -127,9 +125,11 @@ int status(char grid[9]){
 }
 
 void printBoard(char grid[9]){
-  cout << ' ' << '1' << '2' << '3' << endl;
-  cout << 'a' << grid[0] << grid[1] << grid[2] << endl;
-  cout << 'b' << grid[3] << grid[4] << grid[5] << endl;
-  cout << 'c' << grid[6] << grid[7] << grid[8] << endl;
+  cout << ' ' << '1' << ' ' << '2' << ' ' << '3' << endl;
+  cout << 'a' << grid[0] << ' ' << grid[1] << ' ' << grid[2] << endl;
+  cout << endl;
+  cout << 'b' << grid[3] << ' ' << grid[4] << ' ' << grid[5] << endl;
+  cout << endl;
+  cout << 'c' << grid[6] << ' ' << grid[7] << ' ' << grid[8] << endl;
 }
 
